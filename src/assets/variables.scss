@@ -1,0 +1,34 @@
+$righteousFont: "Righteous", sans-serif;
+$juraFont: "Jura", sans-serif;
+$italiannoFont: "Italianno", cursive;
+$robotoFont: "Roboto", sans-serif;
+
+$footerColor: #4671D5;
+$headerColor: rgba(70, 113, 213, 0.9);
+$headerSlideInColor: rgba(70, 113, 213, 1);
+
+$textYellowColor: #FFBF40;
+
+$firstBlockBlue: rgba(37, 39, 88, 0.56);
+$btnColor: #7129DA;
+$bgColor: #2A4480;
+$bgFade: #7778A4;
+
+
+$headerHeight: 80px;
+$footerHeight: 60px;
+
+%limiter {
+    margin: 0 auto;
+    max-width: calc(1280px - 40px);
+    padding: 0px 20px;
+}
+
+@function adaptive-font-size($min-device-width, $min-font-size, $max-font-size) {
+    $font-size: $min-font-size;
+    $font-size: calc(#{$min-font-size} + #{$max-font-size - $min-font-size} * ((100vw - #{$min-device-width}px) / (#{1000 - $min-device-width})));
+    $font-size: min($font-size, $max-font-size);
+
+    @return $font-size;
+}
+
