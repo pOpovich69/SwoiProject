@@ -1,7 +1,7 @@
 <template>
   <div class="bg-img">
     <div></div>
-    <video id="myVideo" autoplay muted loop>
+    <video id="myVideo" autoplay muted loop playsinline webkit-playsinline>
       <source :src="video" type="video/mp4">
       Your browser does not support the video tag!
     </video>
@@ -34,6 +34,9 @@ onMounted(async () => {
   const d = document.getElementById('myVideo')
   if(d) {
     d.removeAttribute('controls');
+    d.addEventListener('loadedmetadata', function() {
+        this.removeAttribute('controls');
+    });
   }
 })
 
