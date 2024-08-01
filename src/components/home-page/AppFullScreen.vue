@@ -1,7 +1,7 @@
 <template>
   <div class="bg-img">
     <div></div>
-    <video autoplay muted loop>
+    <video id="myVideo" autoplay muted loop>
       <source :src="video" type="video/mp4">
       Your browser does not support the video tag!
     </video>
@@ -28,6 +28,16 @@
 <script lang="ts" setup>
 import video from '@/assets/video/demo.mp4'
 import { routingService } from '@/services';
+import { onMounted } from 'vue';
+
+onMounted(async () => {
+  const d = document.getElementById('myVideo')
+  if(d) {
+    d.removeAttribute('controls');
+  }
+})
+
+
 
 const routing = routingService()
 
